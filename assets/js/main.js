@@ -28,26 +28,30 @@ function login() {
 function deposit() {
     var balance = parseInt(document.getElementById('balance-amount').innerHTML);
     var depositAmount = parseInt(document.getElementById('deposit-input').value);
-    if(depositAmount < 10){
+    var currentDeposit = parseInt(document.getElementById('deposit-amount').innerHTML);
+    if (depositAmount < 10) {
         alert("Minimum deposit amount is $10");
     }
-    else{
-        document.getElementById('deposit-amount').innerHTML = depositAmount;
-    document.getElementById('balance-amount').innerHTML = balance + depositAmount;
+    else {
+        document.getElementById('deposit-amount').innerHTML = currentDeposit + depositAmount;
+        document.getElementById('balance-amount').innerHTML = balance + depositAmount;
+        document.getElementById('deposit-input').value = "";
     }
 }
 
 function withdraw() {
     var balance = parseInt(document.getElementById('balance-amount').innerHTML);
     var withdrawAmount = parseInt(document.getElementById('withdraw-input').value);
-    if(balance <= 0 || withdrawAmount > balance){
+    var currentWithdraw = parseInt(document.getElementById('withdraw-amount').innerHTML);
+    if (balance <= 0 || withdrawAmount > balance) {
         alert("Insufficient Balance");
     }
-    else if(withdrawAmount < 10){
+    else if (withdrawAmount < 10) {
         alert("Minimum withdraw amount is $10");
-        }
-    else{
-        document.getElementById('withdraw-amount').innerHTML = withdrawAmount;
+    }
+    else {
+        document.getElementById('withdraw-amount').innerHTML = currentWithdraw + withdrawAmount;
         document.getElementById('balance-amount').innerHTML = balance - withdrawAmount;
-    }   
+        document.getElementById('withdraw-input').value = "";
+    }
 }
