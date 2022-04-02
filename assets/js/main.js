@@ -29,7 +29,7 @@ function deposit() {
     var balance = parseInt(document.getElementById('balance-amount').innerHTML);
     var depositAmount = parseInt(document.getElementById('deposit-input').value);
     var currentDeposit = parseInt(document.getElementById('deposit-amount').innerHTML);
-    if (depositAmount < 10) {
+    if (depositAmount < 10 || isNaN(depositAmount)) {
         alert("Minimum deposit amount is $10");
     }
     else {
@@ -46,7 +46,7 @@ function withdraw() {
     if (balance <= 0 || withdrawAmount > balance) {
         alert("Insufficient Balance");
     }
-    else if (withdrawAmount < 10) {
+    else if (withdrawAmount < 10 || isNaN(withdrawAmount)) {
         alert("Minimum withdraw amount is $10");
     }
     else {
